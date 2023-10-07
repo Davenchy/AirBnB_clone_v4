@@ -26,8 +26,12 @@
     "user_id": "9df4d9b3-19fe-4cdd-8b21-f3ecb480a0ab",
     "city_id": "bc231ffa-7921-4c68-bdaf-8e7ed4af50b3",
     "created_at": "2023-10-07T11:42:48.481788",
-    "updated_at": "2023-10-07T11:42:48.482032",
+    "updated_at": "2023-10-07T13:58:02.369355",
     "id": "d0815452-eaa9-4e10-8098-ba0b833a6daa",
+    "amenity_ids": [
+      "2fe2f328-c838-48e5-aad9-7a223352a0e8",
+      "ae3c9203-26b5-46a8-b2ad-bc26431e87db"
+    ],
     "__class__": "Place"
   },
   "Amenity.2fe2f328-c838-48e5-aad9-7a223352a0e8": {
@@ -43,5 +47,13 @@
     "updated_at": "2023-10-07T11:43:31.339199",
     "id": "ae3c9203-26b5-46a8-b2ad-bc26431e87db",
     "__class__": "Amenity"
+  },
+  "Place.a06110fe-8774-456b-bf1b-9e2e92c9abb8": {
+    "name": "Qnaiat",
+    "created_at": "2023-10-07T13:48:29.124331",
+    "updated_at": "2023-10-07T13:57:57.620636",
+    "id": "a06110fe-8774-456b-bf1b-9e2e92c9abb8",
+    "amenity_ids": ["2fe2f328-c838-48e5-aad9-7a223352a0e8"],
+    "__class__": "Place"
   }
 }
