@@ -6,12 +6,15 @@ window.onload = function () {
   //   if the checkbox is unchecked, you must remove the Amenity ID from the variable
   //   update the h4 tag inside the div Amenities with the list of Amenities checked
   let checkedAmenityIDs = []
+  let checkedAmenityNames = []
   $('input').on('change', function () {
     if (this.checked) {
       checkedAmenityIDs.push($(this).attr('data-id'));
+      checkedAmenityNames.push($(this).attr('data-name'));
     } else {
       checkedAmenityIDs.pop($(this).attr('data-id'));
+      checkedAmenityNames.pop($(this).attr('data-name'));
     }
-    console.log(checkedAmenityIDs);
+    $('div.amenities h4').text(checkedAmenityNames.join(', '));
   });
 };
