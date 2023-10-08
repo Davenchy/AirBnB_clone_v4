@@ -50,11 +50,11 @@ class Place(BaseModel, Base):
         price_by_night = 0
         latitude = 0.0
         longitude = 0.0
+        amenity_ids = []
 
     def __init__(self, *args, **kwargs):
         """initializes Place"""
         super().__init__(*args, **kwargs)
-        self.amenity_ids = []
 
     if models.storage_t != 'db':
         @property
@@ -81,3 +81,7 @@ class Place(BaseModel, Base):
             if type(new_amenity) == Amenity:
                 if new_amenity.id not in self.amenity_ids:
                     self.amenity_ids.append(new_amenity.id)
+            if type(new_amenity) == list:
+                for i in new_amenity:
+                    if i.id not in self.amenity_ids:
+                        self.amenity_ids.append(i.id)
