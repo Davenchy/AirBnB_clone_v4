@@ -22,12 +22,7 @@ def get_place_amenities(place_id):
     if not place:
         abort(404)
 
-    if environ.get('HBNB_TYPE_STORAGE') == "db":
-        amenities = [amenity.to_dict() for amenity in place.amenities]
-    else:
-        amenities = [storage.get(Amenity, amenity_id).to_dict()
-                     for amenity_id in place.amenity_ids]
-
+    amenities = [amenity.to_dict() for amenity in place.amenities]
     return jsonify(amenities)
 
 
