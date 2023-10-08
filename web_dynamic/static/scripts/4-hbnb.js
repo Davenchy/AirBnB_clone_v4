@@ -1,8 +1,8 @@
-window.onload = function () {
+window.onload = function() {
   const $ = window.$;
   const checkedAmenityIDs = [];
   const checkedAmenityNames = [];
-  $("input").on("change", function () {
+  $("input").on("change", function() {
     if (this.checked) {
       checkedAmenityIDs.push($(this).attr("data-id"));
       checkedAmenityNames.push($(this).attr("data-name"));
@@ -17,7 +17,7 @@ window.onload = function () {
     type: "POST",
     data: "{}",
     contentType: "application/json",
-    success: function (data) {
+    success: function(data) {
       console.log(data);
       for (const place of data) {
         $("section.places").append(`<article>
@@ -38,15 +38,16 @@ window.onload = function () {
     },
   });
 
-  $("button").click(function () {
-     $.ajax("http://0.0.0.0:5001/api/v1/places_search/", {
-       type: "POST",
-       data: {'amenities': checkedAmenityIDs},
-       contentType: "application/json",
-       success: function (data) {
-         console.log(data);
-         for (const place of data) {
-           $("section.places").append(`<article>
+  $("button").click(function() {
+    $.ajax("http://0.0.0.0:5001/api/v1/places_search/", {
+      type: "POST",
+      data: JSON.stringify({ 'amenities': checkedAmenityIDs }),
+      contentType: "application/json",
+      success: function(data) {
+        console.log(data);
+        $("section.places").empty();
+        for (const place of data) {
+          $("section.places").append(`<article>
             <div class="title_box">
               <h2>${place.name}</h2>
               <div class="price_by_night">${place.price_by_night}</div>
@@ -60,8 +61,8 @@ window.onload = function () {
               ${place.description}
             </div>
           </article>`);
-         }
-       },
-     });
+        }
+      },
+    });
   });
 };
