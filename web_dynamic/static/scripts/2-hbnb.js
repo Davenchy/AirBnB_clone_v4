@@ -15,7 +15,6 @@ window.onload = function () {
 
   $.ajax('http://0.0.0.0:5001/api/v1/status/', {
     success: function (data, status) {
-      console.log(typeof status);
       if (status === 'success') {
         if (data.status === 'OK') {
           $('DIV#api_status').addClass('available');
